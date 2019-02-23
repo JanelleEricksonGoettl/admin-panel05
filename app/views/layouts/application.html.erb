@@ -17,5 +17,14 @@
     </nav>
 
     <%= yield %>
+    
+    <% flash.each do |key, message| %>
+    <% message.each do |m| %>
+    <div>
+      <%= m %>
+    </div>
+    <% end %>
+    <% end %>
+
   </body>
 </html>
