@@ -41,6 +41,15 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
 
+  def destroy
+    @course = Course.find(params[:course_id])
+    @course.destroy
+    respond_to do |format|
+      format.js
+      format.html { p 'html_response'; redirect_to root_path }
+    end
+  end
+
 
   private
     def course_params
