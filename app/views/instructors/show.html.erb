@@ -1,0 +1,16 @@
+<h1>Instructors#show</h1>
+<p>Find me in app/views/instructors/show.html.erb</p>
+
+<div class="instructor">
+  Instructor: <br>
+  <%= @instructor.full_name %> <br>
+  Age: <br>
+  <%= @instructor.age %> <br>
+  Salary: <br>
+  <%= @instructor.salary %> <br>
+  Education Level:
+  <%= @instructor.education %> <br>
+  Teaches <%= @instructor.cohort.name %> for <%= @instructor.cohort.course.name %> <br>
+  <%= link_to 'Edit Instructor', edit_instructor_path(@course) %> <br>
+  <%= link_to 'Delete Instructor', instructor_delete_path(@instructor.id), method: :delete, data: {confirm: "WARNING: \n \n Are you sure you want to delete this instructor?", remote: true} %>
+</div>

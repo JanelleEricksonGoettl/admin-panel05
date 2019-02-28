@@ -1,0 +1,21 @@
+<h1>Instructors#index</h1>
+<p>Find me in app/views/instructors/index.html.erb</p>
+
+<% @instructors.each do |c| %>
+  <div class="instructor" id="<%= c.id %>">
+    Instructor: <br>
+    <%= c.first_name %> <%= c.last_name %><br>
+    Course: <br>
+    <%= c.cohort.course.name %> <br>
+    Cohort: <br>
+    <%= c.cohort.name %> from <%= c.cohort.start_date %> to <%= c.cohort.end_date %> <br>
+    Age: <br>
+    <%= c.age %> <br>
+    Education: <br>
+    <%= c.education %> <br>
+    Salary: <br>
+    <%= c.salary %> <br>
+    <%= link_to 'Edit Instructor', edit_instructor_path(c) %>
+    <%= link_to 'Delete Instructor', instructor_delete_path(c.id), method: :delete, data: {confirm: "WARNING: \n \n Are you sure you want to delete this instructor?", remote: true} %>
+  </div>
+<% end %>
