@@ -24,7 +24,6 @@ class InstructorsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -40,8 +39,9 @@ class InstructorsController < ApplicationController
   end
 
   def show
-    @cohort = Cohort.find(params[:id])
-    @instructor = Instructor.new
+    # @cohort = Cohort.find(params[:id])
+    # @instructor = Instructor.new
+    
   end
 
   def destroy

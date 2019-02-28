@@ -1,0 +1,14 @@
+<h1>Students#show</h1>
+<p>Find me in app/views/students/show.html.erb</p>
+
+<div class="student">
+  Student: <br>
+  <%= @student.first_name %> <%= @student.last_name %> <br>
+  Age: <br>
+  <%= @student.age %> <br>
+  Education Level: <br>
+  <%= @student.education %> <br>
+  attends <%= @student.cohort.name %> for <%= @student.cohort.course.name %> <br>
+  <%= link_to 'Edit Student', edit_student_path(@student) %> <br>
+  <%= link_to 'Delete Student', student_delete_path(@student.id), method: :delete, data: {confirm: "WARNING: \n \n Are you sure you want to delete this instructor?", remote: true} %>
+</div>

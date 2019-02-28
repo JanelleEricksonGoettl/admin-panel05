@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-
   get 'courses' => 'courses#index'
   get 'cohorts' => 'cohorts#index'
   get 'instructors' => 'instructors#index'
+  get 'students' => 'students#index'
   
   root 'pages#index'
 
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   end
   resources :instructors do
     delete 'delete' => 'instructors#destroy'
+  end
+  resources :students do
+    delete 'delete' => 'students#destroy'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

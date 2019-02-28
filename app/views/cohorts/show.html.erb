@@ -24,6 +24,19 @@
       <%= f.submit 'Add Instructor' %>
     <% end %>
   </div>
+  <div class="">
+    <%= form_for @student do |f| %>
+      Student Name: <br>
+      <%= f.text_field :first_name, placeholder: 'First Name', required: true %> <br>
+      <%= f.text_field :last_name, placeholder: 'Last Name', required: true %> <br>
+      Age: <br>
+      <%= f.number_field :age, placeholder: 18, max: 150, required: true %> <br>
+      Highest Education: <br>
+      <%= f.select :education, options_for_select(["High School", "College", "Masters", "Ph.D"]), required: true%> <br>
+      <%= f.hidden_field :cohort_id, value: @cohort.id %>
+      <%= f.submit 'Add Student' %>
+    <% end %>
+  </div>
   <%= link_to 'Edit Cohort', edit_cohort_path(@cohort) %>
   <%= link_to 'Delete Cohort', cohort_delete_path(@cohort), method: :delete, data: {confirm: "WARNING: \n \n Are you sure you want to delete this cohort?", remote: true} %>
 </div>

@@ -1,0 +1,16 @@
+<h1>Students#edit</h1>
+<p>Find me in app/views/students/edit.html.erb</p>
+
+  <div class="">
+    <%= form_for @student do |f| %>
+      Student Name: <br>
+      <%= f.text_field :first_name, placeholder: 'First Name', required: true %> <br>
+      <%= f.text_field :last_name, placeholder: 'Last Name', required: true %> <br>
+      Age: <br>
+      <%= f.number_field :age, placeholder: 18, max: 150, required: true %> <br>
+      Highest Education: <br>
+      <%= f.select :education, options_for_select(["High School", "College", "Masters", "Ph.D"], @student.education), required: true%> <br>
+      <%= f.hidden_field :cohort_id, value: @student.cohort.id %>
+      <%= f.submit 'Edit Student' %>
+    <% end %>
+  </div>

@@ -9,11 +9,11 @@
       Age: <br>
       <%= f.number_field :age, placeholder: 18, max: 150, required: true %> <br>
       Highest Education: <br>
-      <%= f.select :education, options_for_select(["High School", "College", "Masters", "Ph.D"]), required: true%> <br>
+      <%= f.select :education, options_for_select(["High School", "College", "Masters", "Ph.D"], @instructor.education), required: true%> <br>
       Salary: <br>
       <%= f.number_field :salary, min: 0, required: true %> <br>
       <%= f.hidden_field :cohort_id, value: @instructor.cohort.id %>
       <%= f.submit 'Edit Instructor' %>
     <% end %>
-    <%= link_to 'Delete Instructor', instructor_delete_path(@instructor.id), method: :delete, data: {confirm: "WARNING: \n \n Are you sure you want to delete this instructor?", remote: true} %>
+    <%# link_to 'Delete Instructor', instructor_delete_path(@instructor.id), method: :delete, data: {confirm: "WARNING: \n \n Are you sure you want to delete this instructor?", remote: true} %>
   </div>
