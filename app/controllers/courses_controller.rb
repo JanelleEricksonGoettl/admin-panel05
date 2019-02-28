@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   before_action :find_course, only: %i[show edit update]
 
+
   def index
     @courses = Course.all
   end
@@ -39,6 +40,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @cohort = Cohort.new
   end
 
   def destroy

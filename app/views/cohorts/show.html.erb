@@ -1,0 +1,14 @@
+<h1>Cohorts#show</h1>
+<p>Find me in app/views/cohorts/show.html.erb</p>
+
+<div class="cohort">
+  Cohort: <br>
+  <%= @cohort.name %> <br>
+  For Course: <br>
+  <%= @cohort.course.name %> <br>
+  Class Duration: <br>
+  <%= @cohort.start_date %> <br>
+  <%= @cohort.end_date %> <br>
+  <%= link_to 'Edit Cohort', edit_cohort_path(@cohort) %>
+  <%= link_to 'Delete Cohort', cohort_delete_path(@cohort), method: :delete, data: {confirm: "WARNING: \n \n Are you sure you want to delete this cohort?", remote: true} %>
+</div>

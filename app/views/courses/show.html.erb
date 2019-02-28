@@ -1,9 +1,26 @@
 <h1>Courses#show</h1>
 <p>Find me in app/views/courses/show.html.erb</p>
 
+<%= link_to 'Cohorts', cohorts_path(@course) %>
+
 <div class="course">
+  Course:
   <%= @course.name %> <br>
-  <%= @course.hours %>
-  <%= link_to 'Edit', edit_course_path(@course) %>
+  Course Hours:
+  <%= @course.hours %> <br>
+  <%= link_to 'Edit Course', edit_course_path(@course) %> <br>
+  <div class="">
+  Add Cohort
+  <%= form_for @cohort do |f| %>
+    Cohort:
+    <%= f.text_field :name, placeholder: 'Cohort Name', required: true %> <br>
+    Start Date:
+    <%= f.date_field :start_date, required: true %> <br>
+    End Date:
+    <%= f.date_field :end_date, required: true %> <br>
+    <%= f.hidden_field :course_id, value: @course.id, required: true %>
+    <%= f.submit 'Add Cohort' %>
+  <% end %>
+  </div>
   <%= link_to 'Delete', course_delete_path(@course.id), method: :delete, data: {confirm: "WARNING: \n \n Are you sure you want to delete this course?", remote: true} %>
 </div>
